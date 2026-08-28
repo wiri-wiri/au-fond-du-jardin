@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Au Fond du Jardin — Documentation & Licence GPLv3</title>
+    <style>
+        :root {
+            --primary: #1b5e20;
+            --primary-light: #e8f5e9;
+            --accent: #f57f17;
+            --text: #2c3e50;
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+        }
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--bg);
+            margin: 0;
+            padding: 20px;
+            font-size: 1.05rem;
+        }
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+        .card {
+            background: var(--card);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            margin-bottom: 25px;
+            border: 1px solid var(--border);
+        }
+        h1 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-top: 0;
+            border-bottom: 3px solid var(--primary-light);
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: var(--primary);
+            font-size: 1.35rem;
+            margin-top: 25px;
+            border-left: 4px solid var(--primary);
+            padding-left: 10px;
+        }
+        h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        code, pre {
+            background: #f1f5f9;
+            color: #0f172a;
+            border-radius: 6px;
+            font-family: "Courier New", Courier, monospace;
+        }
+        code {
+            padding: 3px 8px;
+            font-weight: bold;
+        }
+        pre {
+            padding: 15px;
+            overflow-x: auto;
+            border-left: 4px solid var(--primary);
+            font-size: 0.95rem;
+        }
+        ol, ul {
+            padding-left: 25px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .badge-gpl {
+            display: inline-block;
+            background: #0d47a1;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
+        .notice-box {
+            background: #fffbe3;
+            border-left: 5px solid var(--accent);
+            padding: 15px 20px;
+            border-radius: 6px;
+            margin-top: 20px;
+        }
+        .step-num {
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            text-align: center;
+            line-height: 24px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        .footer {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="card">
+        <h1>🌿 Au Fond du Jardin — Station Agro-Météo Autonome</h1>
+        <p><span class="badge-gpl">GNU GPLv3</span> &nbsp; <strong>Auteur :</strong> Bruno Romero (<em>Curl est ton ami</em>) — 2026</p>
+        <p>Application web dynamique, légère et sécurisée dédiée au suivi agronomique des vergers et potagers (relief, GDD, précipitations cumulées, IQA et vigilances gel/canicule).</p>
+    </div>
+
+    <div class="card">
+        <h2>📱 Guide d'utilisation pour les compagnons (Mobile)</h2>
+        <p>Pour tes compagnons, l'utilisation ne nécessite <strong>aucun compte, aucun serveur local et aucune installation d'application</strong>.</p>
+        
+        <ol>
+            <li><strong>Ouvrir le lien :</strong> Cliquer sur le lien web reçu par SMS/WhatsApp (ex: <code>https://ton-pseudo.github.io/au-fond-du-jardin</code>).</li>
+            <li><strong>Régler son terrain :</strong> Appuyer sur le bouton <code>⚙️ Réglages Mon Terrain</code> en haut de page.</li>
+            <li><strong>Saisir ses coordonnées :</strong> Renseigner le Nom du site, la Latitude, la Longitude et le Code INSEE de la commune.</li>
+            <li><strong>Enregistrer :</strong> Cliquer sur <em>« Enregistrer & Mettre à jour »</em>. Les coordonnées sont conservées dans la mémoire locale (<em>localStorage</em>) de leur propre téléphone.</li>
+            <li><strong>Raccourci écran d'accueil :</strong> Dans le menu du navigateur mobile (Chrome/Safari), choisir <em>« Ajouter à l'écran d'accueil »</em> pour y accéder comme une vraie application.</li>
+        </ol>
+    </div>
+
+    <div class="card">
+        <h2>🛠️ Déploiement sur GitHub Pages (Pour le créateur)</h2>
+        
+        <h3><span class="step-num">1</span> Générer le fichier HTML</h3>
+        <p>Exécuter le script Python pour créer le fichier <code>index.html</code> autonome :</p>
+        <pre><code>python3 au_fond_du_jardin.py</code></pre>
+
+        <h3><span class="step-num">2</span> Créer le dépôt GitHub</h3>
+        <ol>
+            <li>Se connecter sur <a href="https://github.com" target="_blank">github.com</a> et créer un nouveau dépôt public nommé <code>au-fond-du-jardin</code>.</li>
+            <li>Déposer les fichiers <code>index.html</code>, <code>au_fond_du_jardin.py</code> et <code>README.html</code> dans la branche principale (<code>main</code>).</li>
+        </ol>
+
+        <h3><span class="step-num">3</span> Activer GitHub Pages</h3>
+        <ol>
+            <li>Sur GitHub, aller dans l'onglet <strong>Settings</strong> > <strong>Pages</strong> (menu de gauche).</li>
+            <li>Dans <em>Build and deployment</em> > <em>Source</em>, sélectionner <strong>Deploy from a branch</strong>.</li>
+            <li>Choisir la branche <code>main</code> et le dossier <code>/ (root)</code>, puis cliquer sur <strong>Save</strong>.</li>
+            <li>Après 1 à 2 minutes, GitHub fournit l'adresse web publique du projet.</li>
+        </ol>
+    </div>
+
+    <div class="card">
+        <h2>⚖️ Licence & Protection du Code</h2>
+        <p>Ce projet est distribué sous la licence libre <strong>GNU General Public License v3.0 (GNU GPLv3)</strong>.</p>
+        
+        <ul>
+            <li><strong>Usage libre et gratuit :</strong> Tout le monde peut utiliser, étudier et partager cette application.</li>
+            <li><strong>Protection Copyleft :</strong> Si quelqu'un modifie ou redistribue ce code, il a l'obligation légale de maintenir le projet sous licence GPLv3 (gratuit et open-source).</li>
+            <li><strong>Interdiction d'appropriation commerciale fermée :</strong> Aucune entreprise ne peut fermer ce code ou le revendre dans une application payante sans publier l'intégralité du code source.</li>
+            <li><strong>Attribution :</strong> Le nom de l'auteur d'origine (Bruno Romero / <em>Curl est ton ami</em>) doit obligatoirement être conservé.</li>
+        </ul>
+
+        <div class="notice-box">
+            <strong>🔒 Sécurité & Confidentialité :</strong><br>
+            Contrairement aux solutions de synchronisation sur cloud personnel (comme Google Drive), cette architecture isole totalement le système de l'auteur. Aucune donnée personnelle, identifiant ou accès au système local ne transite ou n'est exposé.
+        </div>
+    </div>
+
+    <div class="footer">
+        Auteur : Bruno Romero (<em>Curl est ton ami</em>) | Licence GNU GPLv3<br>
+        Sources de données ouvertes : Open-Meteo ERA5, Copernicus CAMS & Atmo Nouvelle-Aquitaine
+    </div>
+
+</div>
+
+</body>
+</html>
