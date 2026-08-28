@@ -3,300 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Au Fond du Jardin — Station Agro-Météo</title>
+    <title>Notice d'utilisation — Station Agro-Météo</title>
     <style>
-        :root {
-            --bg-color: #f4f6f8;
-            --card-bg: #ffffff;
-            --text-color: #2c3e50;
-            --primary-color: #2e7d32;
-            --accent-color: #1b5e20;
-            --border-color: #e0e0e0;
-        }
-
-        body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 900px;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            padding: 24px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border: 1px solid var(--border-color);
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 15px;
-        }
-
-        h1 {
-            color: var(--primary-color);
-            margin: 0;
-            font-size: 1.8rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .btn-settings {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 10px 18px;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            text-decoration: none;
-        }
-
-        .btn-settings:hover {
-            background-color: var(--accent-color);
-        }
-
-        .location-info {
-            font-size: 0.95rem;
-            color: #555;
-            line-height: 1.5;
-            margin-bottom: 20px;
-        }
-
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .metric-box {
-            border-left: 4px solid var(--primary-color);
-            background-color: #f8faf8;
-            padding: 15px;
-            border-radius: 0 8px 8px 0;
-        }
-
-        .metric-label {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: #666;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .metric-value {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #111;
-        }
-
-        .alert-banner {
-            background-color: #fcf8e3;
-            border-radius: 8px;
-            padding: 12px 16px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 0.95rem;
-        }
-
-        .badge {
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-weight: bold;
-            color: white;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-        }
-
-        .badge-orange { background-color: #ef6c00; }
-        .badge-rouge { background-color: #c62828; }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-        }
-
-        th, td {
-            text-align: left;
-            padding: 12px;
-            border-bottom: 1px solid var(--border-color);
-            font-size: 0.95rem;
-        }
-
-        th {
-            background-color: #f8faf8;
-            color: #444;
-        }
-
-        .tag-pill {
-            display: inline-block;
-            padding: 3px 8px;
-            border-radius: 10px;
-            font-size: 0.8rem;
-            background-color: #e8f5e9;
-            color: #2e7d32;
-            margin-right: 4px;
-        }
-
-        footer {
-            margin-top: 20px;
-            text-align: center;
-            font-size: 0.9rem;
-            color: #777;
-        }
-
-        footer a {
-            color: var(--primary-color);
-            text-decoration: underline;
-            font-weight: bold;
-        }
-
-        footer a:hover {
-            color: var(--accent-color);
-        }
+        body { font-family: system-ui, -apple-system, sans-serif; background: #f4f6f8; color: #2c3e50; line-height: 1.6; padding: 20px; max-width: 800px; margin: 0 auto; }
+        .card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+        h1 { color: #1b5e20; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; }
+        h2 { color: #2e7d32; margin-top: 25px; }
+        ul { padding-left: 20px; }
+        li { margin-bottom: 8px; }
+        .btn-back { display: inline-block; background: #1b5e20; color: white; padding: 10px 18px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-bottom: 20px; }
+        .btn-back:hover { background: #2e7d32; }
     </style>
 </head>
 <body>
+    <div class="card">
+        <a href="index.html" class="btn-back">⬅️ Retour à la station météo</a>
+        
+        <h1>📘 Notice d'utilisation & Documentation</h1>
+        <p>Bienvenue sur la station agro-météorologique <strong>Au Fond du Jardin</strong>. Cet outil permet de suivre en direct les conditions météo, les cumuls de pluie, le risque de gel/canicule et la qualité de l'air pour adapter l'entretien du jardin.</p>
 
-    <div class="container">
-        <!-- Carte Principale -->
-        <div class="card">
-            <div class="header">
-                <h1>🪴 Mon Jardin (Haute-Vienne)</h1>
-                <button class="btn-settings">⚙️ Réglages Mon Terrain</button>
-            </div>
+        <h2>📊 1. Comprendre les indicateurs</h2>
+        <ul>
+            <li><strong>Température Directe :</strong> Température de l'air actuelle relevée à 2 mètres du sol.</li>
+            <li><strong>Pluie Cumulée (7j / 30j) :</strong> Quantité totale de précipitations tombées sur les 7 derniers jours et les 30 derniers jours (en mm).</li>
+            <li><strong>Cumul Chaleur (GDD 10°C) :</strong> Degrés-Jours Cumulés. Indicateur clé du développement des plantes et des arbres fruitiers au-dessus de 10°C.</li>
+            <li><strong>Qualité de l'Air (IQA / Ozone) :</strong> Indice de la qualité de l'air européen et taux d'ozone présent dans l'atmosphère.</li>
+        </ul>
 
-            <div class="location-info">
-                <strong>Bassin versant :</strong> Loire-Bretagne (Vienne)<br>
-                <strong>Relief local :</strong> Altitude 271 m | Vallée / Bas-fond
-            </div>
+        <h2>🚨 2. Vigilances & Alertes</h2>
+        <ul>
+            <li><strong style="color: #2e7d32;">VERT :</strong> Conditions normales et favorables.</li>
+            <li><strong style="color: #f57f17;">JAUNE :</strong> Vigilance minimale (risque de gelée blanche ou température > 30°C).</li>
+            <li><strong style="color: #e65100;">ORANGE :</strong> Conditions dégradées (forte chaleur ou pic de pollution/ozone).</li>
+            <li><strong style="color: #c62828;">ROUGE :</strong> Alerte majeure (gel sévère &le; 0°C ou canicule &ge; 35°C).</li>
+        </ul>
 
-            <div class="metrics-grid">
-                <div class="metric-box">
-                    <div class="metric-label">Température Directe</div>
-                    <div class="metric-value">16.7 °C</div>
-                </div>
-                <div class="metric-box">
-                    <div class="metric-label">Pluie Cumulée (7J / 30J)</div>
-                    <div class="metric-value">22.0 / 54.2 mm</div>
-                </div>
-                <div class="metric-box">
-                    <div class="metric-label">Cumul Chaleur (GDD 10°C)</div>
-                    <div class="metric-value">1436 °C.j</div>
-                </div>
-                <div class="metric-box">
-                    <div class="metric-label">Qualité Air (IQA / Ozone)</div>
-                    <div class="metric-value">IQA 17 | 43 µg/m³</div>
-                </div>
-            </div>
+        <h2>⚙️ 3. Personnaliser son terrain</h2>
+        <p>En cliquant sur le bouton <strong>⚙️ Réglages Mon Terrain</strong> en haut à droite, vous pouvez modifier les coordonnées GPS (latitude/longitude) et ajuster les seuils de sensibilité au gel ou à la chaleur pour vos cultures spécifiques.</p>
 
-            <div class="alert-banner">
-                <strong>Vigilance du jour :</strong>
-                <span class="badge badge-orange">ORANGE</span>
-                <span>Pollution IQA (17)</span>
-            </div>
-        </div>
-
-        <!-- Carte Synthèse Mensuelle -->
-        <div class="card">
-            <h2 style="color: var(--primary-color); font-size: 1.3rem; margin-top: 0;">Synthèse Mensuelle & Degrés-Jours (GDD)</h2>
-            
-            <table>
-                <thead>
-                    <tr>
-                        <th>Mois</th>
-                        <th>T° Min Moy.</th>
-                        <th>T° Max Moy.</th>
-                        <th>Cumul GDD</th>
-                        <th>Vigilance</th>
-                        <th>Cumuls & Alertes</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>2026-05</strong></td>
-                        <td>11.7 °C</td>
-                        <td>21.7 °C</td>
-                        <td><strong>208.6 °C.j</strong></td>
-                        <td><span class="badge badge-orange">ORANGE</span></td>
-                        <td>
-                            <span class="tag-pill">Gel: 0j</span>
-                            <span class="tag-pill">Canicule: 0j</span>
-                            <span class="tag-pill">Pluie: 93.0 mm</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><strong>2026-06</strong></td>
-                        <td>16.7 °C</td>
-                        <td>29.1 °C</td>
-                        <td><strong>387.2 °C.j</strong></td>
-                        <td><span class="badge badge-rouge">ROUGE</span></td>
-                        <td>
-                            <span class="tag-pill">Gel: 0j</span>
-                            <span class="tag-pill">Canicule: 9j</span>
-                            <span class="tag-pill">Pluie: 45.2 mm</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><strong>2026-07</strong></td>
-                        <td>18.4 °C</td>
-                        <td>31.4 °C</td>
-                        <td><strong>461.5 °C.j</strong></td>
-                        <td><span class="badge badge-rouge">ROUGE</span></td>
-                        <td>
-                            <span class="tag-pill">Gel: 0j</span>
-                            <span class="tag-pill">Canicule: 6j</span>
-                            <span class="tag-pill">Pluie: 26.9 mm</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><strong>2026-08</strong></td>
-                        <td>17.9 °C</td>
-                        <td>30.1 °C</td>
-                        <td><strong>378.8 °C.j</strong></td>
-                        <td><span class="badge badge-rouge">ROUGE</span></td>
-                        <td>
-                            <span class="tag-pill">Gel: 0j</span>
-                            <span class="tag-pill">Canicule: 3j</span>
-                            <span class="tag-pill">Pluie: 42.9 mm</span>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Pied de page avec lien Notice / Documentation -->
-        <footer>
-            Auteur : Bruno Romero (<em>Curl est ton ami</em>) | Licence GNU GPLv3<br><br>
-            📘 <a href="README.html" target="_blank">Cliquez ici pour lire la Notice d'utilisation & Documentation</a>
-        </footer>
+        <hr style="margin-top: 30px; border: none; border-top: 1px solid #e2e8f0;">
+        <p style="font-size: 0.85rem; color: #64748b; text-align: center;">Station Agro-Météo — Conçu pour un usage jardinier partagé.</p>
     </div>
-
 </body>
 </html>
