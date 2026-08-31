@@ -45,7 +45,22 @@ Lorsque cela est possible, le logiciel doit déterminer automatiquement le reste
 
 Le tableau de bord doit pouvoir être compris rapidement.
 
-Les détails techniques doivent rester accessibles à celui qui souhaite savoir **pourquoi** une donnée a été retenue.
+## Règle de mise en page
+
+> **Ne jamais surcharger l’interface. L’information utile doit être identifiable immédiatement.**
+
+La mise en page doit donner la priorité visuelle à l’essentiel :
+
+- valeur ou information principale ;
+- état ou vigilance lorsqu’ils sont réellement utiles ;
+- contexte minimal nécessaire à la compréhension.
+
+Les informations techniques détaillées — source, variable, résolution, méthode, licence ou autres métadonnées — doivent être documentées principalement dans le présent README plutôt que répétées dans le tableau de bord.
+
+Lorsqu’un détail supplémentaire est nécessaire dans l’interface, il doit rester secondaire et ne pas gêner la lecture immédiate.
+
+**Interface = information utile rapidement identifiable.  
+README = traçabilité, sources, méthodes et limites.**
 
 ---
 
