@@ -112,7 +112,10 @@ th{background:#f8fafc;color:#475569;font-weight:600}
     </div>
   </div>
 
-  <div class="footer">Bruno Romero · <em>Curl est ton ami</em> · GNU GPLv3</div>
+  <div class="footer">
+    Bruno Romero · <em>Curl est ton ami</em> · GNU GPLv3 ·
+    <a href="https://github.com/wiri-wiri/au-fond-du-jardin#readme" target="_blank">README / Documentation</a>
+  </div>
 </div>
 
 <div class="modal" id="settings-modal">
