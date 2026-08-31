@@ -1,4 +1,23 @@
-<!DOCTYPE html>
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""
+Au Fond du Jardin — générateur du tableau de bord local
+Auteur      : Bruno Romero
+Pseudonyme  : Curl est ton ami
+Licence     : GNU General Public License v3.0 (GNU GPLv3)
+
+Ce fichier génère index.html à partir du modèle embarqué.
+Le modèle HTML doit rester cohérent avec le README, cahier des charges du projet.
+"""
+
+from pathlib import Path
+from copernicus import obtenir_humidite_sol
+import webbrowser
+
+FICHIER_SORTIE = Path("index.html")
+
+HTML_TEMPLATE = r"""<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
@@ -68,8 +87,8 @@ th{background:#f8fafc;color:#475569;font-weight:600}
       </div>
       <div class="metric">
         <div class="metric-title">Humidité moyenne du sol</div>
-        <div class="metric-value" id="soil-moisture">28.91 %</div>
-        <div class="site-meta" id="soil-moisture-meta">ERA5-Land · couche 0–7 cm · 2026-08-26</div>
+        <div class="metric-value" id="soil-moisture">-- %</div>
+        <div class="site-meta" id="soil-moisture-meta">ERA5-Land · couche 0–7 cm</div>
       </div>
     </div>
 
@@ -231,3 +250,25 @@ window.addEventListener("click",e=>{if(e.target.id==="settings-modal")toggleModa
 </script>
 </body>
 </html>
+"""
+
+def generer_interface():
+    humidite_sol = obtenir_humidite_sol()
+
+    html = HTML_TEMPLATE.replace(
+        '<div class="metric-value" id="soil-moisture">-- %</div>',
+        f'<div class="metric-value" id="soil-moisture">{humidite_sol["humidite_pourcent"]:.2f} %</div>'
+    )
+
+    html = html.replace(
+        '<div class="site-meta" id="soil-moisture-meta">ERA5-Land · couche 0–7 cm</div>',
+        f'<div class="site-meta" id="soil-moisture-meta">ERA5-Land · couche 0–7 cm · {humidite_sol["date"]}</div>'
+    )
+
+    FICHIER_SORTIE.write_text(html, encoding="utf-8")
+    print(f"✅ Interface générée : {FICHIER_SORTIE.resolve()}")
+    print("📜 Licence : GNU General Public License v3.0 (GNU GPLv3)")
+    webbrowser.open(FICHIER_SORTIE.resolve().as_uri())
+
+if __name__ == "__main__":
+    generer_interface()

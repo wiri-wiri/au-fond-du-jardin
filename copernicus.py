@@ -79,6 +79,20 @@ def trouver_derniere_date_disponible():
 
     raise RuntimeError("Aucune donnée Copernicus disponible sur les 15 derniers jours.")
 
+
+def obtenir_humidite_sol():
+    date_disponible = trouver_derniere_date_disponible()
+    fichier_csv = extraire_csv()
+    donnees = lire_humidite_sol(fichier_csv)
+    moyenne = moyenne_journaliere(donnees)
+
+    return {
+        "date": date_disponible,
+        "humidite_pourcent": moyenne * 100,
+        "latitude": donnees[0]["latitude"],
+        "longitude": donnees[0]["longitude"]
+    }
+
 if __name__ == "__main__":
     date_disponible = trouver_derniere_date_disponible()
 
