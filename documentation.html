@@ -4,36 +4,86 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>README</title>
+  <title>Au Fond du Jardin ��� Documentation</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="documentation.css" />
 </head>
 <body>
+<header id="title-block-header">
+<h1 class="title">Au Fond du Jardin ��� Documentation</h1>
+</header>
 <h1 id="au-fond-du-jardin">🌿 Au Fond du Jardin</h1>
-<p><strong>Au Fond du Jardin</strong> est un projet libre et local-first qui cherche à rendre compréhensibles et utiles des données environnementales ouvertes autour d’un terrain.</p>
-<p>Il est pensé d’abord pour les <strong>jardiniers, vergers, petits terrains et observateurs de leur environnement</strong> qui veulent comprendre ce qui se passe réellement autour d’eux sans devoir apprendre Python, JSON, les API ou les outils scientifiques utilisés en arrière-plan.</p>
+<h2 id="pourquoi-au-fond-du-jardin">🌱 Pourquoi Au Fond du Jardin ?</h2>
+<p>Les services professionnels d’agrométéorologie permettent déjà de
+croiser différentes données pour suivre finement les conditions
+environnementales autour des cultures.</p>
+<p>Mais cette capacité reste difficilement accessible au particulier :
+les données ouvertes existent, mais elles sont dispersées entre de
+nombreuses sources, parfois techniques à exploiter et de résolutions
+différentes.</p>
+<p><strong>Au Fond du Jardin cherche à rendre cette capacité
+d’observation accessible au plus grand nombre.</strong></p>
+<p>À partir d’un simple point GPS, le projet recherche, croise et
+présente les meilleures informations environnementales ouvertes
+disponibles autour de ce lieu.</p>
+<p>Dans un contexte de réchauffement climatique, où l’adaptation locale
+devient de plus en plus importante, mieux comprendre ce qui se passe
+réellement autour de son terrain ne devrait pas être réservé aux
+professionnels disposant de services spécialisés.</p>
 <blockquote>
-<p><strong>Mission : rendre gratuitement accessible une information environnementale locale qui existe déjà dans les données ouvertes, mais dont l’accès et le croisement sont aujourd’hui trop complexes pour l’utilisateur ordinaire.</strong></p>
+<p><strong>Mission : rendre gratuitement accessible une information
+environnementale locale qui existe déjà dans les données ouvertes, mais
+dont l’accès et le croisement sont aujourd’hui trop complexes pour
+l’utilisateur ordinaire.</strong></p>
 </blockquote>
+<p><strong>Au Fond du Jardin observe, croise et hiérarchise. Il ne
+prescrit pas.</strong></p>
 <hr />
 <h2 id="principe-directeur">🧭 Principe directeur</h2>
-<p>La question qui guide l’ajout d’une source, d’un indicateur ou d’une fonction est :</p>
+<p>La question qui guide l’ajout d’une source, d’un indicateur ou d’une
+fonction est :</p>
 <blockquote>
-<p><strong>Est-ce que cette source permet, quelque part, d’améliorer la meilleure information disponible autour d’un point GPS ?</strong></p>
+<p><strong>Est-ce que cette source permet, quelque part, d’améliorer la
+meilleure information disponible autour d’un point GPS ?</strong></p>
 </blockquote>
 <p>Le projet ne cherche donc pas à accumuler les API.</p>
-<p>Il cherche à déterminer, pour chaque information utile, <strong>la meilleure donnée raisonnablement disponible autour du lieu demandé</strong>.</p>
+<p>Il cherche à déterminer, pour chaque information utile, <strong>la
+meilleure donnée raisonnablement disponible autour du lieu
+demandé</strong>.</p>
 <p>La source la plus proche n’est pas nécessairement la meilleure.</p>
-<p>Une donnée doit aussi être évaluée selon sa pertinence physique, sa fraîcheur, sa qualité et sa résolution.</p>
+<p>Une donnée doit aussi être évaluée selon :</p>
+<ul>
+<li>sa pertinence physique ;</li>
+<li>sa fraîcheur ;</li>
+<li>sa qualité et sa documentation ;</li>
+<li>sa résolution spatiale ;</li>
+<li>sa distance au point GPS ;</li>
+<li>son altitude et son contexte topographique lorsque cela compte
+;</li>
+<li>son bassin versant ou son contexte hydrologique lorsque cela compte
+;</li>
+<li>son caractère mesuré ou modélisé ;</li>
+<li>la disponibilité d’un historique.</li>
+</ul>
 <hr />
-<h1 id="ce-que-doit-vivre-lutilisateur">🌱 Ce que doit vivre l’utilisateur</h1>
+<h1 id="ce-que-doit-vivre-lutilisateur">🌱 Ce que doit vivre
+l’utilisateur</h1>
 <p>L’objectif est une utilisation aussi simple que possible.</p>
 <p>À terme, l’utilisateur ne devrait avoir besoin de fournir que :</p>
 <ul>
@@ -41,7 +91,8 @@
 <li>sa latitude ;</li>
 <li>sa longitude.</li>
 </ul>
-<p>Lorsque cela est possible, le logiciel doit déterminer automatiquement le reste :</p>
+<p>Lorsque cela est possible, le logiciel doit déterminer
+automatiquement le reste :</p>
 <ul>
 <li>commune et contexte géographique ;</li>
 <li>bassin versant ;</li>
@@ -51,50 +102,89 @@
 <li>résolution ou distance de chaque donnée.</li>
 </ul>
 <p>Le tableau de bord doit pouvoir être compris rapidement.</p>
+<p>Les détails techniques doivent rester accessibles à celui qui
+souhaite savoir <strong>pourquoi</strong> une donnée a été retenue.</p>
 <h2 id="règle-de-mise-en-page">Règle de mise en page</h2>
 <blockquote>
-<p><strong>Ne jamais surcharger l’interface. L’information utile doit être identifiable immédiatement.</strong></p>
+<p><strong>Ne jamais surcharger l’interface. L’information utile doit
+être identifiable immédiatement.</strong></p>
 </blockquote>
 <p>La mise en page doit donner la priorité visuelle à l’essentiel :</p>
 <ul>
 <li>valeur ou information principale ;</li>
-<li>état ou vigilance lorsqu’ils sont réellement utiles ;</li>
+<li>état ou vigilance uniquement lorsqu’ils sont réellement défendables
+;</li>
 <li>contexte minimal nécessaire à la compréhension.</li>
 </ul>
-<p>Les informations techniques détaillées — source, variable, résolution, méthode, licence ou autres métadonnées — doivent être documentées principalement dans le présent README plutôt que répétées dans le tableau de bord.</p>
-<p>Lorsqu’un détail supplémentaire est nécessaire dans l’interface, il doit rester secondaire et ne pas gêner la lecture immédiate.</p>
+<p>Les informations techniques détaillées — source, variable,
+résolution, méthode, licence ou autres métadonnées — doivent être
+documentées principalement dans le présent README plutôt que répétées
+dans le tableau de bord.</p>
+<p>Lorsqu’un détail supplémentaire est nécessaire dans l’interface, il
+doit rester secondaire et ne pas gêner la lecture immédiate.</p>
 <p><strong>Interface = information utile rapidement identifiable.<br />
 README = traçabilité, sources, méthodes et limites.</strong></p>
 <hr />
-<h1 id="informations-environnementales-recherchées">📊 Informations environnementales recherchées</h1>
-<p>Selon les sources disponibles autour du point GPS, le projet peut chercher à restituer notamment :</p>
+<h1 id="informations-environnementales-recherchées">📊 Informations
+environnementales recherchées</h1>
+<p>Selon les sources disponibles autour du point GPS, le projet peut
+chercher à restituer notamment :</p>
+<h2 id="météo">Météo</h2>
 <ul>
 <li>température de l’air ;</li>
 <li>températures minimales et maximales ;</li>
+<li>température ressentie comme information de contexte ;</li>
+<li>humidité atmosphérique ;</li>
+<li>vitesse du vent ;</li>
+<li>direction du vent ;</li>
 <li>précipitations et cumuls ;</li>
-<li>degrés-jours de croissance (GDD) ;</li>
+<li>degrés-jours de croissance (GDD).</li>
+</ul>
+<h2 id="environnement">Environnement</h2>
+<ul>
+<li>évapotranspiration de référence <strong>ET0</strong> ;</li>
+<li>indice UV ;</li>
 <li>qualité de l’air ;</li>
-<li>ozone ;</li>
+<li>ozone.</li>
+</ul>
+<p>L’ET0 représente la demande évaporative de référence de
+l’atmosphère.</p>
+<p>Elle ne doit pas être présentée comme une mesure directe de l’eau
+réellement perdue par une parcelle ni comme un besoin automatique
+d’arrosage.</p>
+<h2 id="eau-sol-et-territoire">Eau, sol et territoire</h2>
+<ul>
 <li>humidité superficielle du sol ;</li>
 <li>température du sol ;</li>
 <li>contexte hydrologique ;</li>
+<li>bassin versant ;</li>
 <li>débit des cours d’eau ;</li>
 <li>niveau des nappes ;</li>
-<li>autres indicateurs environnementaux apportant une information locale réellement utile.</li>
+<li>autres indicateurs environnementaux apportant une information locale
+réellement utile.</li>
 </ul>
-<p>Toutes ces données ne sont <strong>pas encore implémentées</strong>.</p>
-<p>Le projet évolue progressivement sans prétendre disposer d’une information qui n’existe pas encore dans le logiciel.</p>
+<p>Toutes ces données ne sont <strong>pas encore
+implémentées</strong>.</p>
+<p>Le projet évolue progressivement sans prétendre disposer d’une
+information qui n’existe pas encore dans le logiciel.</p>
 <hr />
-<h1 id="choisir-la-meilleure-information-disponible">🔎 Choisir la meilleure information disponible</h1>
+<h1 id="choisir-la-meilleure-information-disponible">🔎 Choisir la
+meilleure information disponible</h1>
 <h2 id="proximité-pertinence">Proximité ≠ pertinence</h2>
-<p>Une station située à 2 km peut être moins représentative qu’une station située à 8 km.</p>
+<p>Une station située à 2 km peut être moins représentative qu’une
+station située à 8 km.</p>
 <p>Exemples :</p>
 <ul>
-<li>une station hydrologique proche mais située sur un autre bassin versant ;</li>
+<li>une station hydrologique proche mais située sur un autre bassin
+versant ;</li>
 <li>une station météo privée très proche mais mal exposée ;</li>
-<li>une station officielle légèrement plus éloignée mais beaucoup mieux documentée.</li>
+<li>une station officielle légèrement plus éloignée mais beaucoup mieux
+documentée ;</li>
+<li>une petite station locale bien située pouvant révéler un phénomène
+que la grille d’un modèle représente mal.</li>
 </ul>
-<p>La sélection des sources doit progressivement pouvoir tenir compte de :</p>
+<p>La sélection des sources doit progressivement pouvoir tenir compte de
+:</p>
 <ul>
 <li>distance ;</li>
 <li>fraîcheur de la donnée ;</li>
@@ -104,59 +194,137 @@ README = traçabilité, sources, méthodes et limites.</strong></p>
 <li>cohérence topographique ;</li>
 <li>bassin versant ou cours d’eau concerné ;</li>
 <li>disponibilité d’un historique ;</li>
-<li>caractère mesuré ou modélisé.</li>
+<li>caractère mesuré ou modélisé ;</li>
+<li>cohérence avec d’autres sources indépendantes.</li>
 </ul>
+<h2 id="stations-météorologiques-locales">Stations météorologiques
+locales</h2>
+<p>Les petites stations locales constituent une famille de sources
+importante pour le projet.</p>
+<p>Elles peuvent améliorer fortement certaines informations autour du
+point GPS, notamment :</p>
+<ul>
+<li>température ;</li>
+<li>humidité de l’air ;</li>
+<li>vent ;</li>
+<li>précipitations ;</li>
+<li>parfois rayonnement ou autres variables.</li>
+</ul>
+<p>Leur valeur dépend toutefois de leur installation, de leur
+exposition, de leur entretien, de leur fraîcheur et de la documentation
+disponible.</p>
+<p>Le projet doit donc chercher à <strong>évaluer</strong> une station
+locale, et non simplement à la choisir parce qu’elle est proche.</p>
 <h2 id="transparence">Transparence</h2>
 <p>Le logiciel doit distinguer clairement :</p>
-<p><strong>mesure réelle / donnée modélisée / estimation / donnée indisponible.</strong></p>
+<p><strong>mesure réelle / donnée modélisée / estimation / observation /
+donnée indisponible.</strong></p>
 <p>Exemple :</p>
 <pre class="text"><code>Humidité du sol en surface
-Valeur : 0,31 m³/m³
+Valeur : 31 %
 Source : Copernicus ERA5-Land
 Type : donnée modélisée
-Résolution : ~9 km</code></pre>
+Couche : 0–7 cm
+Résolution native : ~9 km</code></pre>
 <p>Une absence de donnée est préférable à une fausse précision.</p>
 <p>Le programme doit pouvoir dire simplement :</p>
 <pre class="text"><code>Donnée locale indisponible</code></pre>
 <hr />
-<h1 id="mesure-modèle-et-observation-du-jardinier">🧪 Mesure, modèle et observation du jardinier</h1>
-<p>Une donnée environnementale extérieure ne représente pas nécessairement exactement ce qui se passe dans une petite parcelle.</p>
-<p>Le projet cherche donc à fournir un <strong>contexte objectif</strong> autour du terrain.</p>
-<p>À terme, ce contexte pourra être croisé avec les observations réalisées directement dans le jardin.</p>
-<pre class="text"><code>             observations du jardinier
-                       │
-                       ▼
-                    terrain
-                       ▲
-          ┌────────────┼────────────┐
-          │            │            │
-       météo       hydrologie     satellite
-          └────────────┼────────────┘
-                       ▼
-              contexte objectif</code></pre>
-<p>Plusieurs indicateurs indépendants et cohérents peuvent constituer un <strong>faisceau de preuves</strong> plus utile qu’une valeur isolée.</p>
+<h1 id="mesure-modèle-et-observation-du-terrain">🧪 Mesure, modèle et
+observation du terrain</h1>
+<p>Une donnée environnementale extérieure ne représente pas
+nécessairement exactement ce qui se passe dans une petite parcelle.</p>
+<p>Le projet cherche donc à fournir le meilleur <strong>contexte
+objectif</strong> possible autour du terrain.</p>
+<p>Ce contexte peut être confronté aux observations réalisées
+directement sur place.</p>
+<pre class="text"><code>données mesurées
+      +
+données modélisées
+      +
+sources locales
+      ↓
+signal / tendance
+      ↓
+observation directe du terrain
+      ↓
+corroboration ou remise en question</code></pre>
+<p>L’observation du terrain n’efface pas les limites des données.</p>
+<p>Inversement, un modèle ne doit jamais être présenté comme une mesure
+effectuée dans le jardin.</p>
+<p>Lorsque plusieurs informations indépendantes convergent et sont
+cohérentes avec l’observation directe, elles peuvent constituer un
+<strong>faisceau de preuves</strong> plus robuste qu’une valeur
+isolée.</p>
 <hr />
-<h1 id="vigilances-et-seuils">🚨 Vigilances et seuils</h1>
+<h1 id="vigilances-indices-et-seuils">🚨 Vigilances, indices et
+seuils</h1>
 <p>Le prototype contient actuellement des niveaux :</p>
 <p><strong>VERT / JAUNE / ORANGE / ROUGE</strong></p>
 <p>Ils sont encore <strong>expérimentaux</strong>.</p>
-<p>Ils ne doivent pas être interprétés comme des seuils agronomiques ou écologiques validés.</p>
-<p>Le futur système de vigilance devra utiliser, selon l’indicateur :</p>
+<p>Ils ne doivent pas être interprétés comme des seuils agronomiques ou
+écologiques validés.</p>
+<p>La règle scientifique du projet est :</p>
+<blockquote>
+<p><strong>Pas de phénomène défendable → pas d’indice.</strong></p>
+</blockquote>
+<p>Un indice ne doit pas être créé simplement parce qu’une
+représentation en couleur serait pratique.</p>
+<p>Avant d’afficher un indice, il faut pouvoir relier :</p>
+<pre class="text"><code>données disponibles
+        ↓
+phénomène physique identifiable
+        ↓
+relation documentée entre variables et phénomène
+        ↓
+méthode et seuils défendables
+        ↓
+indice éventuel</code></pre>
+<p>Selon le phénomène, la méthode pourra utiliser :</p>
 <ul>
 <li>des seuils absolus documentés lorsqu’ils existent ;</li>
 <li>la situation locale habituelle ;</li>
 <li>des anomalies ou percentiles ;</li>
-<li>la durée du phénomène ;</li>
-<li>la convergence de plusieurs indicateurs ;</li>
-<li>éventuellement une observation effectuée sur le terrain.</li>
+<li>la durée ou la persistance du phénomène ;</li>
+<li>la convergence de plusieurs signaux indépendants ;</li>
+<li>des pondérations issues d’une méthode documentée ;</li>
+<li>le contexte spatial et la résolution des données ;</li>
+<li>l’observation du terrain comme corroboration.</li>
 </ul>
-<p>L’objectif n’est pas de produire une alerte spectaculaire.</p>
-<p>L’objectif est de pouvoir expliquer <strong>pourquoi</strong> un niveau de vigilance est affiché.</p>
+<p>Aucune pondération ne doit être inventée arbitrairement.</p>
+<h2 id="reproductibilité">Reproductibilité</h2>
+<blockquote>
+<p><strong>Tout indice affiché doit être reproductible à partir de sa
+définition documentée dans le README.</strong></p>
+</blockquote>
+<p>Pour chaque indice retenu, la documentation devra préciser au minimum
+:</p>
+<ul>
+<li>le phénomène observé ;</li>
+<li>les variables utilisées ;</li>
+<li>les sources des données ;</li>
+<li>la zone ou la résolution spatiale ;</li>
+<li>la période statistique de référence ;</li>
+<li>la méthode de calcul ;</li>
+<li>les seuils ;</li>
+<li>la durée ou persistance nécessaire ;</li>
+<li>la fréquence de mise à jour ;</li>
+<li>la signification de chaque niveau ;</li>
+<li>les limites et incertitudes.</li>
+</ul>
+<p>Si ces éléments ne peuvent pas être défendus, le projet doit afficher
+les données elles-mêmes sans fabriquer d’indice global.</p>
 <hr />
-<h1 id="pourquoi-surveiller-la-qualité-de-lair">🌬️ Pourquoi surveiller la qualité de l’air ?</h1>
-<p>Pour le jardinier, la qualité de l’air n’est pas seulement une information destinée à la santé humaine.</p>
-<p>L’<strong>ozone troposphérique</strong> peut également affecter le fonctionnement des végétaux.</p>
-<p>Une exposition importante peut perturber les échanges gazeux et modifier la conductance stomatique. Selon l’espèce, l’intensité et la durée du stress, cela peut participer à une fermeture partielle des stomates ou à une régulation moins efficace.</p>
+<h1 id="pourquoi-surveiller-la-qualité-de-lair">🌬️ Pourquoi surveiller
+la qualité de l’air ?</h1>
+<p>Pour le jardinier, la qualité de l’air n’est pas seulement une
+information destinée à la santé humaine.</p>
+<p>L’<strong>ozone troposphérique</strong> peut également affecter le
+fonctionnement des végétaux.</p>
+<p>Une exposition importante peut perturber les échanges gazeux et
+modifier la conductance stomatique. Selon l’espèce, l’intensité et la
+durée du stress, cela peut participer à une fermeture partielle des
+stomates ou à une régulation moins efficace.</p>
 <p>Ces perturbations peuvent influencer :</p>
 <ul>
 <li>les échanges de CO₂ ;</li>
@@ -164,19 +332,24 @@ Résolution : ~9 km</code></pre>
 <li>la photosynthèse ;</li>
 <li>le fonctionnement hydrique de la plante.</li>
 </ul>
-<p>L’IQA ou la concentration d’ozone <strong>ne mesurent cependant pas directement l’ouverture des stomates</strong>.</p>
-<p>Ils constituent un indicateur de contexte à croiser avec notamment :</p>
+<p>L’IQA ou la concentration d’ozone <strong>ne mesurent cependant pas
+directement l’ouverture des stomates</strong>.</p>
+<p>Ils constituent un indicateur de contexte à croiser avec notamment
+:</p>
 <ul>
 <li>température ;</li>
 <li>humidité atmosphérique ;</li>
 <li>disponibilité en eau du sol ;</li>
 <li>durée du phénomène ;</li>
-<li>observations du jardinier.</li>
+<li>observations du terrain.</li>
 </ul>
 <hr />
 <h1 id="sources-de-données">🛰️ Sources de données</h1>
-<h2 id="sources-actuellement-utilisées">Sources actuellement utilisées</h2>
-<p>Le prototype actuel utilise principalement les services <strong>Open-Meteo</strong> pour :</p>
+<h2 id="sources-actuellement-utilisées">Sources actuellement
+utilisées</h2>
+<h3 id="open-meteo">Open-Meteo</h3>
+<p>Le prototype actuel utilise principalement les services
+<strong>Open-Meteo</strong> pour :</p>
 <ul>
 <li>température actuelle ;</li>
 <li>historique des températures ;</li>
@@ -185,22 +358,34 @@ Résolution : ~9 km</code></pre>
 <li>qualité de l’air et ozone.</li>
 </ul>
 <p>Les GDD, cumuls et synthèses sont ensuite calculés localement.</p>
-<h2 id="sources-prévues-ou-étudiées">Sources prévues ou étudiées</h2>
 <h3 id="copernicus-era5-land">Copernicus / ERA5-Land</h3>
-<p>Prévu notamment pour apporter un contexte spatial continu et des informations telles que :</p>
+<p>L’humidité superficielle du sol est désormais récupérée depuis
+<strong>ERA5-Land</strong>.</p>
+<p>La variable utilisée représente l’eau volumique dans la couche
+superficielle du sol, <strong>0–7 cm</strong>.</p>
+<p>La donnée est associée à la cellule de grille ERA5-Land correspondant
+au point demandé.</p>
+<p>Elle doit toujours être présentée comme :</p>
 <ul>
-<li>humidité superficielle du sol ;</li>
-<li>température du sol ;</li>
-<li>historique environnemental ;</li>
-<li>anomalies par rapport aux conditions habituelles.</li>
+<li>une <strong>donnée modélisée</strong> ;</li>
+<li>associée à une grille d’environ <strong>9 km</strong> de résolution
+native ;</li>
+<li>différente d’une mesure effectuée physiquement dans la
+parcelle.</li>
 </ul>
-<p>Une donnée Copernicus devra toujours être présentée comme une donnée modélisée avec sa résolution réelle, et non comme une mesure effectuée dans le jardin.</p>
+<p>Le prototype calcule actuellement une moyenne journalière à partir
+des valeurs horaires disponibles.</p>
+<p>Une indisponibilité de Copernicus ne doit pas empêcher le reste du
+tableau de bord de fonctionner.</p>
+<h2 id="sources-prévues-ou-étudiées">Sources prévues ou étudiées</h2>
 <h3 id="réseaux-météorologiques">Réseaux météorologiques</h3>
 <p>Le projet prévoit d’étudier et comparer :</p>
 <ul>
 <li>stations officielles ;</li>
 <li>stations contributives ouvertes ;</li>
-<li>stations privées dont les conditions d’accès et de réutilisation sont compatibles avec le projet.</li>
+<li>petites stations locales ;</li>
+<li>stations privées dont les conditions d’accès et de réutilisation
+sont compatibles avec le projet.</li>
 </ul>
 <h3 id="hubeau">Hub’Eau</h3>
 <p>Prévu pour les données françaises liées notamment :</p>
@@ -210,8 +395,10 @@ Résolution : ~9 km</code></pre>
 <li>aux nappes souterraines.</li>
 </ul>
 <h3 id="autres-sources">Autres sources</h3>
-<p>D’autres sources peuvent être ajoutées si elles respectent le principe directeur du projet.</p>
-<p>Une source n’entre pas dans le noyau uniquement parce qu’elle est techniquement accessible.</p>
+<p>D’autres sources peuvent être ajoutées si elles respectent le
+principe directeur du projet.</p>
+<p>Une source n’entre pas dans le noyau uniquement parce qu’elle est
+techniquement accessible.</p>
 <hr />
 <h1 id="architecture-visée">🧱 Architecture visée</h1>
 <pre class="text"><code>Point GPS
@@ -229,16 +416,18 @@ recherche des sources disponibles
 normalisation
    │
    ▼
-indicateurs
+informations / indices défendables
    │
    ▼
 affichage simple</code></pre>
-<p>Les sources doivent progressivement devenir indépendantes du reste du programme.</p>
+<p>Les sources doivent progressivement devenir indépendantes du reste du
+programme.</p>
 <p>Exemple conceptuel :</p>
 <pre class="text"><code>core/
     localisation
     dates
     sélection_sources
+    agrégation
     indicateurs
 
 sources/
@@ -251,57 +440,106 @@ sources/
 
 interface/
     web</code></pre>
+<h2 id="séparation-logique-actuelle">Séparation logique actuelle</h2>
+<p>Le projet tend vers une séparation claire entre récupération,
+préparation et présentation :</p>
+<pre class="text"><code>sources / modules Python
+        ↓
+générateur Python
+        ↓
+template.html
+        ↓
+index.html</code></pre>
+<p>Le HTML ne doit pas être enfoui inutilement dans le générateur
+Python.</p>
 <h2 id="règle-dévolution">Règle d’évolution</h2>
 <blockquote>
 <p><strong>Évolutif ne doit jamais vouloir dire incomplet.</strong></p>
 </blockquote>
 <p>Le noyau doit rester fonctionnel pendant son évolution.</p>
-<p>Une nouvelle source doit améliorer l’application sans rendre le reste du programme dépendant de cette source.</p>
+<p>Une nouvelle source doit améliorer l’application sans rendre le reste
+du programme dépendant de cette source.</p>
 <h2 id="règle-de-distribution">Règle de distribution</h2>
 <blockquote>
-<p><strong>Le packaging doit s’adapter à la plateforme ; le noyau ne doit jamais dépendre du packaging.</strong></p>
+<p><strong>Le packaging doit s’adapter à la plateforme ; le noyau ne
+doit jamais dépendre du packaging.</strong></p>
 </blockquote>
-<p>À terme, le même noyau pourra être distribué sous différentes formes :</p>
+<p>À terme, le même noyau pourra être distribué sous différentes formes
+:</p>
 <ul>
 <li>Windows ;</li>
 <li>Linux ;</li>
 <li>macOS ;</li>
 <li>code source Python.</li>
 </ul>
-<p>Le traitement doit rester autant que possible <strong>local</strong>.</p>
-<p>Le projet cherche ainsi à éviter qu’un serveur central, un abonnement ou une infrastructure coûteuse deviennent nécessaires à son fonctionnement.</p>
+<p>Le traitement doit rester autant que possible
+<strong>local</strong>.</p>
+<p>Le projet cherche ainsi à éviter qu’un serveur central, un abonnement
+ou une infrastructure coûteuse deviennent nécessaires à son
+fonctionnement.</p>
 <hr />
 <h1 id="aide-utilisateur">📘 Aide utilisateur</h1>
 <h2 id="lancer-le-prototype-actuel">Lancer le prototype actuel</h2>
-<p>Dans sa forme actuelle, le programme Python génère un fichier <code>index.html</code> puis l’ouvre dans le navigateur.</p>
+<p>Dans sa forme actuelle, le programme Python génère un fichier
+<code>index.html</code> à partir de <code>template.html</code>, puis
+peut l’ouvrir dans le navigateur.</p>
 <p>L’interface fonctionne comme un petit tableau de bord web local.</p>
-<p>Une connexion Internet reste nécessaire pour interroger les sources de données distantes.</p>
+<p>Une connexion Internet reste nécessaire pour interroger les sources
+de données distantes.</p>
 <h2 id="régler-son-terrain">Régler son terrain</h2>
-<p>Le bouton <strong>⚙️ Réglages Mon Terrain</strong> permet actuellement de modifier les informations utilisées par le prototype.</p>
+<p>Le bouton <strong>⚙️ Mon terrain</strong> permet actuellement de
+modifier :</p>
+<ul>
+<li>le nom du site ;</li>
+<li>la latitude ;</li>
+<li>la longitude.</li>
+</ul>
 <p>Les coordonnées sont conservées localement par le navigateur.</p>
-<p>Certains champs présents aujourd’hui, comme le code INSEE et le bassin hydrographique, sont des héritages de la phase expérimentale.</p>
-<p><strong>Ils ne devraient pas avoir à être renseignés manuellement dans la version cible.</strong></p>
+<p>La version cible doit déterminer automatiquement autant que possible
+les informations géographiques complémentaires.</p>
 <h2 id="température">Température</h2>
-<p>La température affichée correspond à la donnée fournie par la source pour les coordonnées configurées.</p>
-<p>Elle ne doit pas être présentée comme une mesure effectuée physiquement dans le jardin lorsqu’elle provient d’un modèle ou d’une grille météorologique.</p>
+<p>La température affichée correspond à la donnée fournie par la source
+pour les coordonnées configurées.</p>
+<p>Elle ne doit pas être présentée comme une mesure effectuée
+physiquement dans le jardin lorsqu’elle provient d’un modèle ou d’une
+grille météorologique.</p>
 <h2 id="pluie-7-jours-30-jours">Pluie 7 jours / 30 jours</h2>
-<p>Ces valeurs correspondent aux cumuls de précipitations calculés sur les périodes indiquées à partir des données disponibles.</p>
+<p>Ces valeurs correspondent aux cumuls de précipitations calculés sur
+les périodes indiquées à partir des données disponibles.</p>
 <h2 id="gdd">GDD</h2>
-<p>Les <strong>Growing Degree Days</strong>, ou degrés-jours de croissance, représentent une accumulation de chaleur au-dessus d’une température de base.</p>
-<p>Le prototype utilise actuellement une base de <strong>10 °C</strong>.</p>
+<p>Les <strong>Growing Degree Days</strong>, ou degrés-jours de
+croissance, représentent une accumulation de chaleur au-dessus d’une
+température de base.</p>
+<p>Le prototype utilise actuellement une base de <strong>10
+°C</strong>.</p>
 <p>Cette valeur n’est pas universelle.</p>
-<p>Les besoins et seuils biologiques varient selon les espèces et les usages.</p>
+<p>Les besoins et seuils biologiques varient selon les espèces et les
+usages.</p>
+<h2 id="humidité-superficielle-du-sol">Humidité superficielle du
+sol</h2>
+<p>La valeur affichée actuellement provient de Copernicus ERA5-Land.</p>
+<p>Elle décrit l’humidité volumique moyenne de la couche superficielle
+<strong>0–7 cm</strong> de la cellule de grille associée au point
+GPS.</p>
+<p>Elle fournit un contexte régionalisé du sol et ne constitue pas une
+mesure directe de la parcelle.</p>
 <h2 id="qualité-de-lair">Qualité de l’air</h2>
-<p>Le prototype affiche actuellement un indice européen de qualité de l’air et une concentration d’ozone lorsque les données sont disponibles.</p>
-<p>Voir la section <strong>Pourquoi surveiller la qualité de l’air ?</strong> pour comprendre son intérêt pour le jardin.</p>
-<h2 id="comprendre-une-donnée-absente">Comprendre une donnée absente</h2>
-<p>Une donnée absente n’est pas une panne si aucune source suffisamment pertinente n’est disponible.</p>
-<p>Le logiciel doit progressivement apprendre à distinguer :</p>
+<p>Le prototype affiche actuellement un indice européen de qualité de
+l’air et une concentration d’ozone lorsque les données sont
+disponibles.</p>
+<p>Voir la section <strong>Pourquoi surveiller la qualité de l’air
+?</strong> pour comprendre son intérêt.</p>
+<h2 id="comprendre-une-donnée-absente">Comprendre une donnée
+absente</h2>
+<p>Une donnée absente n’est pas une panne si aucune source suffisamment
+pertinente n’est disponible.</p>
+<p>Le logiciel doit distinguer :</p>
 <pre class="text"><code>Donnée indisponible</code></pre>
 <p>de :</p>
 <pre class="text"><code>Erreur lors de la récupération des données</code></pre>
 <h2 id="comprendre-la-précision">Comprendre la précision</h2>
-<p>Lorsque cela est possible, chaque donnée importante devra pouvoir indiquer :</p>
+<p>Lorsque cela est possible, chaque donnée importante devra pouvoir
+indiquer :</p>
 <ul>
 <li>sa source ;</li>
 <li>sa date ou fraîcheur ;</li>
@@ -324,67 +562,91 @@ interface/
 <li>qualité de l’air ;</li>
 <li>ozone ;</li>
 <li>synthèse mensuelle ;</li>
+<li>récupération de l’humidité superficielle du sol via Copernicus
+ERA5-Land ;</li>
+<li>gestion d’une indisponibilité de Copernicus sans bloquer le reste du
+tableau de bord ;</li>
+<li>séparation du générateur Python et du modèle HTML ;</li>
+<li>documentation HTML accessible depuis le tableau de bord ;</li>
 <li>premières vigilances expérimentales.</li>
 </ul>
 <h2 id="encore-expérimental">Encore expérimental</h2>
 <ul>
-<li>caractérisation du relief ;</li>
 <li>niveaux de vigilance ;</li>
-<li>seuils spécifiques aux cultures ;</li>
-<li>code INSEE renseigné manuellement ;</li>
-<li>bassin hydrographique renseigné manuellement.</li>
+<li>méthode future de sélection et hiérarchisation des sources ;</li>
+<li>interprétation croisée de plusieurs signaux.</li>
 </ul>
 <h2 id="pas-encore-implémenté">Pas encore implémenté</h2>
 <ul>
 <li>sélection automatique de la meilleure source ;</li>
-<li>Copernicus / ERA5-Land ;</li>
-<li>humidité du sol ;</li>
+<li>ET0 ;</li>
+<li>indice UV dans la vue cible ;</li>
+<li>vent et direction dans la vue cible ;</li>
+<li>température ressentie dans la vue cible ;</li>
 <li>température du sol ;</li>
 <li>Hub’Eau ;</li>
-<li>sélection de stations météo locales ;</li>
+<li>sélection automatique de stations météo locales ;</li>
 <li>détermination automatique du bassin versant ;</li>
-<li>indication systématique de la provenance et de la précision.</li>
+<li>indication systématique de la provenance et de la précision ;</li>
+<li>indice global scientifiquement défendable.</li>
 </ul>
 <hr />
 <h1 id="feuille-de-route">🗺️ Feuille de route</h1>
-<h3 id="étape-1-stabiliser-le-prototype">Étape 1 — Stabiliser le prototype</h3>
+<h3 id="étape-1-consolider-le-noyau-actuel">Étape 1 — Consolider le
+noyau actuel</h3>
 <ul>
-<li>finaliser le présent cahier des charges ;</li>
-<li>nettoyer l’interface actuelle ;</li>
-<li>supprimer les informations présentées avec une précision excessive ;</li>
-<li>conserver un prototype immédiatement utilisable.</li>
+<li>maintenir la séparation Python / HTML ;</li>
+<li>conserver la gestion d’erreur par source ;</li>
+<li>préserver un prototype immédiatement utilisable ;</li>
+<li>maintenir le README comme cahier des charges maître.</li>
 </ul>
-<h3 id="étape-2-première-nouvelle-source">Étape 2 — Première nouvelle source</h3>
-<p>Intégrer <strong>Copernicus / ERA5-Land</strong> en commençant par l’humidité superficielle du sol.</p>
-<p>Objectifs :</p>
+<h3 id="étape-2-enrichir-le-contexte-atmosphérique">Étape 2 — Enrichir
+le contexte atmosphérique</h3>
+<p>Tester puis intégrer progressivement :</p>
 <ul>
-<li>récupérer la donnée autour du GPS ;</li>
-<li>conserver sa provenance ;</li>
-<li>indiquer qu’elle est modélisée ;</li>
-<li>afficher sa résolution ;</li>
-<li>ne pas inventer de seuil « sec / humide » sans justification.</li>
+<li>ET0 ;</li>
+<li>vent et direction ;</li>
+<li>humidité atmosphérique lorsque pertinente ;</li>
+<li>température ressentie comme contexte ;</li>
+<li>indice UV.</li>
 </ul>
-<h3 id="étape-3-sélection-des-sources-météo">Étape 3 — Sélection des sources météo</h3>
-<p>Chercher automatiquement les stations pertinentes autour du point GPS et commencer à comparer :</p>
+<p>Chaque donnée doit d’abord être testée directement auprès de sa
+source avant son intégration au programme.</p>
+<h3 id="étape-3-sélection-des-sources-météo-locales">Étape 3 — Sélection
+des sources météo locales</h3>
+<p>Chercher automatiquement les stations pertinentes autour du point GPS
+et comparer notamment :</p>
 <ul>
 <li>distance ;</li>
 <li>altitude ;</li>
+<li>exposition lorsque documentée ;</li>
 <li>fraîcheur ;</li>
 <li>qualité ;</li>
-<li>disponibilité historique.</li>
+<li>historique ;</li>
+<li>cohérence avec les autres sources.</li>
 </ul>
-<h3 id="étape-4-hydrologie">Étape 4 — Hydrologie</h3>
-<p>Ajouter progressivement les sources pertinentes de Hub’Eau et le contexte du bassin versant.</p>
-<h3 id="étape-5-faisceau-dindicateurs">Étape 5 — Faisceau d’indicateurs</h3>
-<p>Faire évoluer les vigilances vers une interprétation fondée sur plusieurs informations indépendantes et documentées.</p>
+<h3 id="étape-4-eau-et-territoire">Étape 4 — Eau et territoire</h3>
+<p>Ajouter progressivement :</p>
+<ul>
+<li>contexte du bassin versant ;</li>
+<li>sources pertinentes de Hub’Eau ;</li>
+<li>données hydrométriques ;</li>
+<li>données piézométriques lorsque pertinentes.</li>
+</ul>
+<h3 id="étape-5-indices-défendables">Étape 5 — Indices défendables</h3>
+<p>Étudier les phénomènes pour lesquels un indice peut réellement être
+justifié.</p>
+<p>Aucun indice ne doit être ajouté tant que sa méthode, ses seuils et
+ses limites ne sont pas documentés et reproductibles.</p>
 <hr />
 <h1 id="contributions">🤝 Contributions</h1>
-<p><strong>Au Fond du Jardin</strong> a vocation à être un projet ouvert.</p>
+<p><strong>Au Fond du Jardin</strong> a vocation à être un projet
+ouvert.</p>
 <p>Une contribution peut concerner :</p>
 <ul>
 <li>une nouvelle source ;</li>
 <li>un connecteur vers une API ;</li>
-<li>un indicateur ;</li>
+<li>un indicateur scientifiquement défendable ;</li>
 <li>une amélioration de l’interface ;</li>
 <li>une correction scientifique ;</li>
 <li>une amélioration de la documentation ;</li>
@@ -392,12 +654,15 @@ interface/
 </ul>
 <p>Avant d’ajouter quelque chose, la question reste :</p>
 <blockquote>
-<p><strong>Est-ce que cette source permet, quelque part, d’améliorer la meilleure information disponible autour d’un point GPS ?</strong></p>
+<p><strong>Est-ce que cette source permet, quelque part, d’améliorer la
+meilleure information disponible autour d’un point GPS ?</strong></p>
 </blockquote>
 <hr />
 <h1 id="licence">⚖️ Licence</h1>
-<p>Le prototype actuel est publié sous <strong>GNU General Public License v3.0 (GPLv3)</strong>.</p>
+<p>Le prototype actuel est publié sous <strong>GNU General Public
+License v3.0 (GPLv3)</strong>.</p>
 <hr />
-<p><strong>Auteur : Bruno Romero — <em>Curl est ton ami</em></strong></p>
+<p><strong>Auteur : Bruno Romero — <em>Curl est ton
+ami</em></strong></p>
 </body>
 </html>
